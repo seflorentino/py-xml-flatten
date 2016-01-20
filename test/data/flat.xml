@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<parent>
+  <node>
+    <firstName>Daddy</firstName>
+    <lastName>Pig</lastName>
+    <occupation>Architect</occupation>
+  </node>
+  <node>
+    <firstName>Mr</firstName>
+    <lastName>Potato</lastName>
+    <occupation>Entertainer</occupation>
+  </node>
+  <node>
+    <firstName>Mr</firstName>
+    <lastName>Zebra</lastName>
+    <occupation>Postman</occupation>
+  </node>
+</parent>
