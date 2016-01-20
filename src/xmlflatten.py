@@ -43,7 +43,7 @@ class ElementContentHandler(xml.sax.ContentHandler):
     def endElement(self, name):
         if name == self.rootElement:
             self.isReadingElement = False
-            self.callback(self.dict)
+            self.callback(self.dict.copy())
         elif self.isReadingElement:
             self.dict['.'.join(self.prefix)] = self.content
             self.prefix.pop()
