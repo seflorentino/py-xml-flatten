@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<parent>
+  <node>
+    <name>Peppa</name>
+    <items>
+      <item>boots</boots>
+      <item>teddy</teddy>
+    </items>
+  </node>
+  <node>
+    <name>George</name>
+    <items>
+      <item>dinosaur</item>
+    </items>
+  </node>
+</parent>
