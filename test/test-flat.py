@@ -12,16 +12,16 @@ class TestFlatFile(unittest.TestCase):
         flatter.flatten()
 
         output = collector.get_data()
-
-        self.assertEquals(output[0]['node.firstName'], 'Daddy', 'Must match firstName')
-        self.assertEquals(output[0]['node.lastName'], 'Pig', 'Must match lastName')
-        self.assertEquals(output[0]['node.occupation'], 'Architect', 'Must match occupation')
-        self.assertEquals(output[1]['node.firstName'], 'Mr', 'Must match firstName')
-        self.assertEquals(output[1]['node.lastName'], 'Potato', 'Must match lastName')
-        self.assertEquals(output[1]['node.occupation'], 'Entertainer', 'Must match occupation')
-        self.assertEquals(output[2]['node.firstName'], 'Mr', 'Must match firstName')
-        self.assertEquals(output[2]['node.lastName'], 'Zebra', 'Must match lastName')
-        self.assertEquals(output[2]['node.occupation'], 'Postman', 'Must match occupation')
+        print 'text', output[0].tag
+        self.assertEquals(output[0].tag, 'node', 'Must match root tag')
+        self.assertEquals(output[0].find('lastName').text, 'Pig', 'Must match lastName')
+        self.assertEquals(output[0].find('occupation').text, 'Architect', 'Must match occupation')
+        self.assertEquals(output[1].find('firstName').text, 'Mr', 'Must match firstName')
+        self.assertEquals(output[1].find('lastName').text, 'Potato', 'Must match lastName')
+        self.assertEquals(output[1].find('occupation').text, 'Entertainer', 'Must match occupation')
+        self.assertEquals(output[2].find('firstName').text, 'Mr', 'Must match firstName')
+        self.assertEquals(output[2].find('lastName').text, 'Zebra', 'Must match lastName')
+        self.assertEquals(output[2].find('occupation').text, 'Postman', 'Must match occupation')
 
 class DataCollector():
     def __init__(self):
