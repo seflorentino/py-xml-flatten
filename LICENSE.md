@@ -1,30 +1,4 @@
-py-xml-flatten
-===============
-
-## Overview
-
-Simple Python script for transforming big XML files to flat CSV format.
-
-# Usage
-
-```
-xmlflatten.py -i <src .xml> -e 'root_sub_element' -c 'xpath_columns'
-```
-
-Parameters:
-* -i - input XML file. Must be a file composed of well-formed elements, i.e. can be parsed by ElementTree.
-* -e - root sub element tag. The tag to search for and process as an individual document.
-* -c - The columns to print as comma-separated xpath values.
-
-Examples:
-```
-xmlflatten.py -i employees.xml -e 'employee' -c './firstName,./lastName'
-
-xmlflatten.py -i students.xml -e 'student' -c './name,./subject[1]/teacher,./subject[2]/teacher'
-```
-
 ## License
-
 (The MIT License)
 
 Permission is hereby granted, free of charge, to any person obtaining
