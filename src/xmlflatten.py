@@ -53,30 +53,19 @@ class ElementPrinterFactory:
     def __init__(self, columns):
         self.columns = map(string.strip, string.split(columns, ','))
 
-    def print_elem(self, data):
-        """Print data matching columns input"""
-        adict = {}
-        self.__add_to_dict__(adict, data.tag, data)
-
+    def print_xpath(self, data):
         out_cols = []
         for col in self.columns:
-            if col in adict.keys():
-                out_cols.append(adict[col])
+            elem = data.find(col)
+            if elem != None:
+                out_cols.append(elem.text)
             else:
                 out_cols.append('')
         print ",".join(out_cols)
-
-    def __add_to_dict__(self, adict, prefix, data):
-        """Add element data to dictionary"""
-        if len(list(data)) > 0:
-            for index, child in enumerate(data):
-                connector = '' if prefix == data.tag else '[' + str(index) + ']'
-                self.__add_to_dict__(adict, prefix + connector + '.' + child.tag, child)
-        else:
-            adict[prefix] = data.text
+        return ",".join(out_cols)
 
     def get_printer(self):
-        return self.print_elem
+        return self.print_xpath
 
 
 def getArgs():

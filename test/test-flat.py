@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import unittest
 import sys
 sys.path.append('src')
@@ -12,16 +14,23 @@ class TestFlatFile(unittest.TestCase):
         flatter.flatten()
 
         output = collector.get_data()
-        print 'text', output[0].tag
-        self.assertEquals(output[0].tag, 'node', 'Must match root tag')
-        self.assertEquals(output[0].find('lastName').text, 'Pig', 'Must match lastName')
-        self.assertEquals(output[0].find('occupation').text, 'Architect', 'Must match occupation')
-        self.assertEquals(output[1].find('firstName').text, 'Mr', 'Must match firstName')
-        self.assertEquals(output[1].find('lastName').text, 'Potato', 'Must match lastName')
-        self.assertEquals(output[1].find('occupation').text, 'Entertainer', 'Must match occupation')
-        self.assertEquals(output[2].find('firstName').text, 'Mr', 'Must match firstName')
-        self.assertEquals(output[2].find('lastName').text, 'Zebra', 'Must match lastName')
-        self.assertEquals(output[2].find('occupation').text, 'Postman', 'Must match occupation')
+
+        _assEq = self.assertEquals
+
+        first = output[0]
+        _assEq(first.tag, 'node', 'Must match root tag')
+        _assEq(first.find('lastName').text, 'Pig', 'Must match lastName')
+        _assEq(first.find('occupation').text, 'Architect', 'Must match occupation')
+
+        second = output[1]
+        _assEq(second.find('firstName').text, 'Mr', 'Must match firstName')
+        _assEq(second.find('lastName').text, 'Potato', 'Must match lastName')
+        _assEq(second.find('occupation').text, 'Entertainer', 'Must match occupation')
+
+        third = output[2]
+        _assEq(third.find('firstName').text, 'Mr', 'Must match firstName')
+        _assEq(third.find('lastName').text, 'Zebra', 'Must match lastName')
+        _assEq(third.find('occupation').text, 'Postman', 'Must match occupation')
 
 class DataCollector():
     def __init__(self):
